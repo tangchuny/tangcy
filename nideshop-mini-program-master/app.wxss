@@ -1,0 +1,60 @@
+/**app.wxss**/
+.container {
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+} 
+
+view,image,text,navigator{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+
+}
+
+view,text{
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+  font-size: 29rpx;
+  color: #333;
+}
+
+
+.l-flex,   .l-f  {display:flex;}
+.l-flex-v, .l-fv {display:flex; flex-flow:column;}
+.l-flex-t, .l-ft {display:flex; align-items:flex-start;}
+.l-flex-b, .l-fb {display:flex; align-items:flex-end;}
+.l-flex-c, .l-fc {display:flex; align-items:center;}
+.l-flex-s, .l-fs {display:flex; align-items:stretch;}
+.l-flex-1, .l-f1 {flex:1;}
+.l-flex-2, .l-f2 {flex:2;}
+.l-flex-3, .l-f3 {flex:3;}
+.l-flex-4, .l-f4 {flex:4;}
+.l-flex-5, .l-f5 {flex:5;}
+.l-flex-6, .l-f6 {flex:6;}
+.l-flex-7, .l-f7 {flex:7;}
+.l-flex-8, .l-f8 {flex:8;}
+.l-flex-9, .l-f9 {flex:9;}
+.l-flex-10, .l-f10 {flex:10;}
+.l-flex-11, .l-f11 {flex:11;}
+.l-flex-12, .l-f12 {flex:12;}
+.l-width-max  {width:100%;}
+.l-height-max {height:100%;}
+
+.c-text-r, .c-tr {text-align:right;}
+.c-text-l, .c-tl {text-align:left;}
+.c-text-c, .c-tc {text-align:center;}
+.c-text-r, .c-tr {text-align:right;}
+.c-text-j, .c-tj {text-align:justify;}
+
+.border-r{
+  border-right: solid 2rpx #f4f4f4
+}
+.border-t{
+  border-top: solid 2rpx #f4f4f4
+}
+.border-b{
+  border-bottom: solid 2rpx #f4f4f4
+}
+.border-l{
+  border-left: solid 2rpx #f4f4f4
+}

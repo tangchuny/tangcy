@@ -1,0 +1,42 @@
+
+<!--index.wxml-->
+<view class="container">
+  <view class="address l-flex">
+    <view class="c-text-c border-r loc">
+      <view class="address-icon">
+        <image src="../../static/images/address.png"/>
+      </view>
+      <view>位置</view>
+    </view>
+    <view class="l-flex-3 a">
+      <view class="name">地址：南宁市竹溪大道钱隆天下8号楼9号楼65号商铺</view>
+      <view class="time l-flex">
+        <view class="tel">
+           <image src="../../static/images/tel.png"/>
+           <text >18169639969</text>
+        </view>
+        <view class="l-flex-1">时间: 6:00-20:00 </view>
+      </view>
+    </view>
+  </view>
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+      <navigator url="{{item.link}}">
+        <image src="{{item.image_url}}" background-size="cover"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+  <view class="l-flex big-menu c-text-c">
+    <view class="l-flex-2 border-r border-b">
+        点外卖
+    </view>
+    <view class="l-flex-3 l-flex-v  border-b">
+        <view class="d-right border-b">
+          打包带走
+        </view>
+        <view class="d-right">
+          现场点餐
+        </view>
+    </view>
+  </view>
+</view>
