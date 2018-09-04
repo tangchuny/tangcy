@@ -17,7 +17,12 @@ view,text{
   font-size: 29rpx;
   color: #333;
 }
-
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
 
 .l-flex,   .l-f  {display:flex;}
 .l-flex-v, .l-fv {display:flex; flex-flow:column;}
@@ -46,6 +51,16 @@ view,text{
 .c-text-r, .c-tr {text-align:right;}
 .c-text-j, .c-tj {text-align:justify;}
 
+.clamp1{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.pd, .pt{
+  padding:8rpx 10rpx;
+}
+
 .border-r{
   border-right: solid 2rpx #f4f4f4
 }
@@ -57,4 +72,10 @@ view,text{
 }
 .border-l{
   border-left: solid 2rpx #f4f4f4
+}
+
+.center-box{
+  display: flex;
+  justify-content:center;
+  width:100%;
 }

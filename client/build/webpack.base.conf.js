@@ -24,7 +24,6 @@ module.exports = {
   // entry: {
   //   app: './src/main.js'
   // },
-  // ¶àÒ³ÃæÅäÖÃ
   entry: utils.entries(),
   output: {
     path: config.build.assetsRoot,
@@ -42,7 +41,8 @@ module.exports = {
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      //ä¸ç”¨eslint,å¤ªæƒ¡å¿ƒäº†
+      // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',

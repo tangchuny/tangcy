@@ -1,12 +1,12 @@
-const ApiRootUrl = 'http://192.168.2.106:8360/api/';
+const ApiRootUrl = 'http://192.168.2.104:8360/api/';
 
 module.exports = {
   IndexUrl: ApiRootUrl + 'index/index', //首页数据接口
-  CatalogList: ApiRootUrl + 'catalog/index',  //分类目录全部分类数据接口
+  CatalogList: ApiRootUrl + 'catalog/list',  //分类目录全部分类数据接口
   CatalogCurrent: ApiRootUrl + 'catalog/current',  //分类目录当前分类数据接口
 
   AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
-
+  Channel: ApiRootUrl + 'godds/channel',
   GoodsCount: ApiRootUrl + 'goods/count',  //统计商品总数
   GoodsList: ApiRootUrl + 'goods/list',  //获得商品列表
   GoodsCategory: ApiRootUrl + 'goods/category',  //获得分类数据

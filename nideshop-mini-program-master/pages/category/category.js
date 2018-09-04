@@ -4,9 +4,11 @@ var api = require('../../config/api.js');
 Page({
   data: {
     // text:"这是一个页面"
-    navList: [],
+    navList: [
+
+    ],
     goodsList: [],
-    id: 0,
+    id: 1,
     currentCategory: {},
     scrollLeft: 0,
     scrollTop: 0,
@@ -17,11 +19,6 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var that = this;
-    if (options.id) {
-      that.setData({
-        id: parseInt(options.id)
-      });
-    }
 
     wx.getSystemInfo({
       success: function (res) {
@@ -30,37 +27,17 @@ Page({
         });
       }
     });
-
-
     this.getCategoryInfo();
-
+    this.getGoodsList(1)
   },
   getCategoryInfo: function () {
     let that = this;
-    util.request(api.GoodsCategory, { id: this.data.id })
+    util.request(api.CatalogList)
       .then(function (res) {
-
         if (res.errno == 0) {
           that.setData({
-            navList: res.data.brotherCategory,
-            currentCategory: res.data.currentCategory
+            navList: res.data,
           });
-
-          //nav位置
-          let currentIndex = 0;
-          let navListCount = that.data.navList.length;
-          for (let i = 0; i < navListCount; i++) {
-            currentIndex += 1;
-            if (that.data.navList[i].id == that.data.id) {
-              break;
-            }
-          }
-          if (currentIndex > navListCount / 2 && navListCount > 5) {
-            that.setData({
-              scrollLeft: currentIndex * 60
-            });
-          }
-          that.getGoodsList();
 
         } else {
           //显示错误信息
@@ -78,39 +55,30 @@ Page({
   onHide: function () {
     // 页面隐藏
   },
-  getGoodsList: function () {
+  getGoodsList: function (id) {
     var that = this;
-
-    util.request(api.GoodsList, {categoryId: that.data.id, page: that.data.page, size: that.data.size})
+    util.request(api.GoodsList, { category_id: id })
       .then(function (res) {
         that.setData({
-          goodsList: res.data.goodsList,
+          goodsList: res.data,
         });
       });
   },
   onUnload: function () {
     // 页面关闭
   },
+  openCartPage: function () {
+    wx.switchTab({
+      url: '/pages/cart/cart',
+    });
+  },
   switchCate: function (event) {
     if (this.data.id == event.currentTarget.dataset.id) {
       return false;
     }
-    var that = this;
-    var clientX = event.detail.x;
-    var currentTarget = event.currentTarget;
-    if (clientX < 60) {
-      that.setData({
-        scrollLeft: currentTarget.offsetLeft - 60
-      });
-    } else if (clientX > 330) {
-      that.setData({
-        scrollLeft: currentTarget.offsetLeft
-      });
-    }
     this.setData({
       id: event.currentTarget.dataset.id
     });
-
-    this.getCategoryInfo();
+    this.getGoodsList(this.data.id)
   }
 })

@@ -48,4 +48,12 @@ module.exports = class extends Base {
       currentCategory: currentCategory
     });
   }
+ /**
+  * 获取category的数据
+  */
+    async listAction() {
+      const category = this.model('category')
+      const cateList = await category.select()
+      return this.success(cateList)
+    }
 };

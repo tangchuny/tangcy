@@ -17,6 +17,7 @@
   margin-top:18rpx;
 }
 .tel{
+  color: #999;
   font-size: 26rpx;
   margin-right: 30rpx;
 }
@@ -32,6 +33,17 @@
   margin:0 auto;
   display:block;
   margin-bottom:10rpx;
+}
+.order-t{
+  font-size: 30rpx;
+}
+
+.order-icon image{
+  height: 120rpx;
+  width: 120rpx;
+  margin:0 auto;
+  display:block;
+  margin-bottom:16rpx;
 }
 .loc{
   width:150rpx;

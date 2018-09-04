@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
+    
+     "pages/index/index",
+     "pages/category/category",
     "pages/catalog/catalog",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
@@ -26,12 +28,12 @@
     "pages/brand/brand",
     "pages/brandDetail/brandDetail",
     "pages/search/search",
-    "pages/category/category",
+   
     "pages/cart/cart",
     "pages/shopping/checkout/checkout",
     "pages/shopping/address/address",
     "pages/shopping/addressAdd/addressAdd",
-    "pages/goods/goods",
+   
     "pages/topicDetail/topicDetail"
   ],
   "window": {

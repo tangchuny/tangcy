@@ -1,5 +1,39 @@
-<view class="container">
-    <view class="cate-nav">
+<view class="container l-flex category">
+    <view class="g-left" style="height:{{scrollHeight}}px;">
+       <view wx:for="{{navList}}" bindtap="switchCate" class="list {{ id == item.id ? 'current' : ''}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}"  >
+            <view class="name" >{{item.name}}</view>
+        </view>
+    </view>
+    <view class="l-flex-2">
+        <scroll-view scroll-y="true"  style="height:{{scrollHeight}}; margin-bottom: 100rpx;">
+         <view class="cate-item l-flex border-b" wx:for="{{goodsList}}" wx:for-index="index" wx:key="{{item.id}}" wx:for-item="item">
+            <view class='cate-img'>
+              <image src='{{item.list_pic_url}}'></image>
+            </view>
+            <view class='text'>
+                <view class='name'>{{item.name}}</view>
+                <view class='detail clamp1'>
+                  {{item.goods_brief}}
+                </view>
+                <view class='detail'>
+                  月售: {{item.sell_volume}}
+                </view>
+                <view class='l-flex'>
+                   <view class='price l-flex-1 fl'>￥<text>{{item.retail_price}}</text></view>
+                   <view class='price l-flex-1 fr'>
+                      <view class="selnum l-flex">
+                        <text class="cut " bindtap="cutNumber">-</text>
+                        <input value="1" class="number"  type="number" />
+                        <text class="add" bindtap="addNumber">+</text>
+                      </view>
+                   </view>
+                </view>
+            </view>
+         </view>
+
+         </scroll-view>
+    </view>
+    <!-- <view class="cate-nav">
         <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
             <view  wx:for="{{navList}}" class="item {{ id == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">
                 <view class="name">{{item.name}}</view>
@@ -21,5 +55,21 @@
             </navigator>
         </view>
     </view>
-    </scroll-view>
+    </scroll-view> -->
+
+    <view class="bottom-btn l-flex">
+      <view class="l l-cart  l-flex-1" bindtap="openCartPage">
+       <navigator url="../cart/cart">
+        <view class="box">
+          <text class="cart-count">12</text>
+          <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
+        </view>
+        </navigator>
+      </view>
+      <view class="c l-flex-1">
+          <view class='price'>￥35.00</view>
+          <view>免配送费</view>
+      </view>
+      <view class="r l-flex-1" bindtap="addToCart">去结算</view>
+    </view>
 </view>

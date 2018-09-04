@@ -4,15 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/index'
-import methods from '../../common/methods.js'
 Vue.config.productionTip = false
 
-window.Vue = Vue
-window.App = new Vue({
+/* eslint-disable no-new */
+new Vue({
   el: '#app',
   router,
   store,
-  methods,//全部掛在App下
   components: { App },
   template: '<App/>'
 })

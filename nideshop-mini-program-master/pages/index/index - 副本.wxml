@@ -26,8 +26,14 @@
       </navigator>
     </swiper-item>
   </swiper>
+  <view class="m-menu">
+    <navigator  class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+      <image src="{{item.icon_url}}" background-size="cover"></image>
+      <text>{{item.name}}</text>
+    </navigator>
+  </view>
   <view class="l-flex big-menu">
-    <navigator url="../category/category" class="l-flex-1 border-r border-b">
+    <view class="l-flex-1 border-r border-b">
       <view class="l-flex l-flex-c l-flex-1 l-height-max">
         <view  class="l-flex-1">
             <view class="c-text-c">
@@ -38,9 +44,8 @@
             </view>
         </view>
       </view>
-    </navigator>
-   
-    <navigator class="l-flex-1 border-r border-b">
+    </view>
+    <view class="l-flex-1 border-r border-b">
       <view class="l-flex l-flex-c l-flex-1 l-height-max">
         <view  class="l-flex-1">
             <view class="c-text-c">
@@ -51,8 +56,8 @@
             </view>
         </view>
       </view>
-    </navigator>
-    <navigator class="l-flex-1 border-r border-b">
+    </view>
+    <view class="l-flex-1 border-r border-b">
       <view class="l-flex l-flex-c l-flex-1 l-height-max">
         <view  class="l-flex-1">
             <view class="c-text-c">
@@ -63,6 +68,6 @@
             </view>
         </view>
       </view>
-    </navigator>
+    </view>
   </view>
 </view>

@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <!-- <router-view/> -->
-    <keep-alive>
-        <router-view></router-view>
-    </keep-alive>
+    asdfsdf
+    <img src="./assets/logo.png">
+    <router-view/>
   </div>
 </template>
 
