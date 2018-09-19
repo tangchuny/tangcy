@@ -18,6 +18,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "big.js": "^5.1.2",
     "element-ui": "^2.4.0",
     "autoprefixer": "^7.1.2",
     "axios": "^0.18.0",

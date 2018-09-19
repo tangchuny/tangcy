@@ -1,31 +1,49 @@
 <template>
     <div class="">
-        <el-table class="o-pt" :data="tableData" ref="table" style="width: 100%"  @selection-change="handleSelectionChange">
-                     
-                        <el-table-column prop="account0" label="会员账号" align="center"></el-table-column>
-                        <el-table-column prop="account1" sortable label="姓氏" align="center"></el-table-column>
-                        <el-table-column prop="account11" label="资金账户号" align="center" >
+       <el-table class="o-pt" :data="tableData" ref="table" style="width: 100%"  @selection-change="handleSelectionChange">
+                        <el-table-column
+                            type="selection"
+                            width="30">
                         </el-table-column>
-                        <el-table-column prop="account12" label="可用资金" align="center" >
+                        <el-table-column prop="account0" label="币种名称" align="center" ></el-table-column>
+                        <el-table-column prop="account1" sortable label="发行量（个）" align="center"></el-table-column>
+                        <el-table-column prop="account2" sortable label="发行单价(￥)" align="center" ></el-table-column>
+                        <el-table-column prop="account3" sortable label="发行方名称" align="center" ></el-table-column>
+                        <el-table-column prop="account4" label="产品状态" align="center" ></el-table-column>
+                        <el-table-column prop="account5" label="时间" align="center"></el-table-column>
+                        <el-table-column prop="account6" label="交易状态" align="center">
                         </el-table-column>
-                         <el-table-column prop="account12" label="冻结资金" align="center" >
-                        </el-table-column>
-                        <el-table-column prop="account13" label="操作" align="center">
+                        <el-table-column prop="account13" label="操作" align="center" width="200">
                              <template slot-scope="scope">
-                                <a class="t-link-blue o-pr-m">详情</a>
-                                <a class="t-link-blue">删除</a>
+                                  <el-button size="mini" type="warning" @click="Detail(scope.row,'配置交易参数')" round>配置交易参数</el-button>
+                                  <el-button size="mini" @click="Edit(scope.row)" round>修改</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
+                  <div class="c-tc o-m-b">
+                    <el-pagination
+                      @size-change="handleSizeChange"
+                      @current-change="handleCurrentChange"
+                      :current-page="currentPage4"
+                      :page-sizes="[100, 200, 300, 400]"
+                      :page-size="100"
+                      layout="total, sizes, prev, pager, next, jumper"
+                      :total="400">
+                    </el-pagination>
+                    </div>
+                  <modal-setting v-model="Editer.view" :title="Editer.title" :form="Editer.form"></modal-setting>
+                  <Editer v-model="Editer.view" :title="Editer.title" :form="Editer.form"></Editer>
     </div>
 </template>
 <script>
 import jsons from '../../../json/user-info.json'
-
+import modalSetting from '../modal/modal-setting.vue'
+import Editer from '../modal/modal-editer.vue'
 export default {
-    name: 'table-fund',
+    name: 'table-pass',
     data(){
         return{
+            show: false,
             account9: true,
             input5: '',
             select: '',
@@ -34,7 +52,11 @@ export default {
             ],
         }
     },
-     methods: {
+    components: {
+      modalSetting,
+      Editer
+    },
+    methods: {
         toggleSelection(rows) {
         if (rows) {
           rows.forEach(row => {
@@ -46,6 +68,9 @@ export default {
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+      setting() {
+        this.show = true
       }
     },
     mounted(){

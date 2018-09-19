@@ -18,9 +18,9 @@
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b">
-                <el-menu-item index="1">货币基础信息管理</el-menu-item>
-                <el-menu-item index="2">币地址管理</el-menu-item>
-                <el-menu-item index="3">交易对管理</el-menu-item>
+                <el-menu-item index="1" @click="$router.push({name: 'coin/info'})">货币基础信息管理</el-menu-item>
+                <el-menu-item index="2" @click="$router.push({name: 'coin/address'})">币地址管理</el-menu-item>
+                <el-menu-item index="3" @click="$router.push({name: 'coin/trade'})">交易对管理</el-menu-item>
             </el-menu>
 
        </div>

@@ -5,22 +5,22 @@
                             type="selection"
                             width="30">
                         </el-table-column>
-                        <el-table-column prop="account0" label="币种名称" align="center" ></el-table-column>
-                        <el-table-column prop="account1" sortable label="发行量（个）" align="center"></el-table-column>
-                        <el-table-column prop="account2" sortable label="发行单价(￥)" align="center" ></el-table-column>
-                        <el-table-column prop="account3" sortable label="发行方名称" align="center" ></el-table-column>
-                        <el-table-column prop="account4" label="产品状态" align="center" ></el-table-column>
-                        <el-table-column prop="account5" label="时间" align="center"></el-table-column>
-                        <el-table-column prop="account6" label="交易状态" align="center">
+                        <el-table-column prop="account0" label="交易币种" align="center"></el-table-column>
+                        <el-table-column prop="account1" sortable label="定价币种" align="center"></el-table-column>
+                        <el-table-column prop="account11" label="定价类型" align="center" >
                         </el-table-column>
-                        <el-table-column prop="account13" label="操作" align="center" width="200">
+                        <el-table-column prop="account12" label="时间" align="center" >
+                        </el-table-column>
+                         <el-table-column prop="account12" label="开启/关闭交易" align="center" >
+                        </el-table-column>
+                        <el-table-column prop="account13" label="操作" align="center">
                              <template slot-scope="scope">
-                                  <el-button size="mini" type="warning" @click="Detail(scope.row,'配置交易参数')" round>配置交易参数</el-button>
-                                  <el-button size="mini" @click="Edit(scope.row)" round>修改</el-button>
+                                <a class="t-link-blue o-pr-m">详情</a>
+                                <a class="t-link-blue">删除</a>
                             </template>
                         </el-table-column>
                     </el-table>
-                  <div class="c-tc o-m-b">
+                    <div class="c-tc o-m-b">
                     <el-pagination
                       @size-change="handleSizeChange"
                       @current-change="handleCurrentChange"
@@ -31,19 +31,15 @@
                       :total="400">
                     </el-pagination>
                     </div>
-                  <modal-setting v-model="Editer.view" :title="Editer.title" :form="Editer.form"></modal-setting>
-                  <Editer v-model="Editer.view" :title="Editer.title" :form="Editer.form"></Editer>
     </div>
 </template>
 <script>
 import jsons from '../../../json/user-info.json'
-import modalSetting from '../modal/modal-setting.vue'
-import Editer from '../modal/modal-editer.vue'
+
 export default {
-    name: 'table-unpass',
+    name: 'table-charge',
     data(){
         return{
-            show: false,
             account9: true,
             input5: '',
             select: '',
@@ -52,11 +48,7 @@ export default {
             ],
         }
     },
-    components: {
-      modalSetting,
-      Editer
-    },
-    methods: {
+     methods: {
         toggleSelection(rows) {
         if (rows) {
           rows.forEach(row => {
@@ -68,9 +60,6 @@ export default {
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
-      },
-      setting() {
-        this.show = true
       }
     },
     mounted(){

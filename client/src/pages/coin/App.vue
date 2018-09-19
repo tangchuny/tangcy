@@ -12,7 +12,10 @@
     .worker {
         background-color : #f5f5f5;
         height: 100vh;
-        width: 100%;
+        width: 80%;
+        max-width: 1600px;
+        min-width: 1200px;
+        margin: 0 auto;
         overflow: hidden;
     }
 </style>

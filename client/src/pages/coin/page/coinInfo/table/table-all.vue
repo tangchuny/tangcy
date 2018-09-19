@@ -15,7 +15,7 @@
                         </el-table-column>
                         <el-table-column prop="account13" label="操作" align="center" width="200">
                              <template slot-scope="scope">
-                                  <el-button size="mini" type="warning" @click="Detail(scope.row,'配置交易参数')" round>配置交易参数</el-button>
+                                  <el-button size="mini" type="warning" @click="showDetail(scope.row,'配置交易参数')" round>配置交易参数</el-button>
                                   <el-button size="mini" @click="Edit(scope.row)" round>修改</el-button>
                             </template>
                         </el-table-column>
@@ -31,7 +31,7 @@
                       :total="400">
                     </el-pagination>
                     </div>
-                  <modal-setting v-model="Editer.view" :title="Editer.title" :form="Editer.form"></modal-setting>
+                  <modal-setting v-model="Show.view" :title="Show.title" :form="Show.form"></modal-setting>
                   <Editer v-model="Editer.view" :title="Editer.title" :form="Editer.form"></Editer>
     </div>
 </template>
@@ -40,16 +40,19 @@ import jsons from '../../../json/user-info.json'
 import modalSetting from '../modal/modal-setting.vue'
 import Editer from '../modal/modal-editer.vue'
 export default {
-    name: 'table-unpass',
     data(){
         return{
-            show: false,
             account9: true,
             input5: '',
             select: '',
             tableData: [
                 
             ],
+            Show : {
+                view : false,
+                title : null,
+                Params : null,
+            },
         }
     },
     components: {
@@ -57,6 +60,11 @@ export default {
       Editer
     },
     methods: {
+         showDetail(data, title){
+            this.Show.view  = true
+            this.Show.title = title
+            this.Show.form  = data ? this.Origin(data) : null            
+        },
         toggleSelection(rows) {
         if (rows) {
           rows.forEach(row => {

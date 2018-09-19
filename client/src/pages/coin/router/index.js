@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import registration from '../page/setting.vue'
 
 Vue.use(Router)
 
@@ -13,35 +11,29 @@ export default new Router({
         title: '首页',
         icon: '',
         hidden: true,
-        component: () => import('../page/order/index.vue'),
+        component: () => import('../page/coinInfo/index.vue'),
       },
    {
-        path: '/order',
-        name: 'order',
-        title: '交易订单查询',
+        path: '/coin/info',
+        name: 'coin/info',
+        title: '货币基础信息管理',
         icon: '',
         hidden: false,
-        component: () => import('../page/order/index.vue'),
+        component: () => import('../page/coinInfo/index.vue'),
       },{
-        path: '/info',
-        name: 'info',
-        title: '提币审核',
+        path: '/coin/address',
+        name: 'coin/address',
+        title: '币地址管理',
         icon: '',
         hidden: false,
-        component: () => import('../page/coinCheck/index.vue'),
+        component: () => import('../page/address/index.vue'),
       }, {
-        path: '/ledger',
-        name: 'ledger',
-        title: '交易所台账管理',
+        path: '/coin/trade',
+        name: 'coin/trade',
+        title: '交易对管理',
         icon: '',
         hidden: false,
-        component: () => import('../page/ledger/index.vue'),
-      }, {
-        path: '/online/service',
-        name: 'online/service',
-        title: '充币提币管理',
-        icon: '',
-        component: registration
-      }, 
+        component: () => import('../page/trade/index.vue'),
+      }
   ]
 })

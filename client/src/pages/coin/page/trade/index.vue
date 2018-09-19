@@ -6,19 +6,20 @@
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                    <el-button type="primary" @click="Edit">添加币种</el-button>
+                                    <el-button type="primary" @click="Edit">添加交易对</el-button>
                                     <el-button type="info">刷新</el-button>
+                                    <el-button type="danger">批量删除</el-button>
                             </div>
                         </div>
                     </div>
                 <table-all></table-all>
             </el-tab-pane>
-            <el-tab-pane label="发行中" name="second">
+            <el-tab-pane label="已开启" name="second">
                 <div class="o-m-l c-bg-f">
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                    <el-button type="primary" @click="Edit">添加币种</el-button>
+                                   <el-button type="primary" @click="Edit">添加交易对</el-button>
                                     <el-button type="info">刷新</el-button>
                             </div>
                         </div>
@@ -26,12 +27,12 @@
                
                 <table-fund></table-fund>
             </el-tab-pane>
-            <el-tab-pane label="已暂停" name="third">
+            <el-tab-pane label="已关闭" name="third">
                 <div class="o-m-l c-bg-f">
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                   <el-button type="primary" @click="Edit">添加币种</el-button>
+                                   <el-button type="primary" @click="Edit">添加交易对</el-button>
                                     <el-button type="info">刷新</el-button>
                             </div>
                         </div>
@@ -40,8 +41,6 @@
                 <table-fund></table-fund>
             </el-tab-pane>
         </el-tabs>
-        <Editer v-model="Editer.view" :title="Editer.title" :form="Editer.form"></Editer>
-      
     </div>
 </template>
 <script>
@@ -49,12 +48,8 @@ import memberSearch from './modal/search.vue'
 import tableAll from './table/table-all.vue'
 import tableFund from './table/table-fund.vue'
 import tableCharge from './table/table-charge.vue'
-
-import Editer from './modal/modal-editer.vue'
-
-
 export default {
-    name: 'coin-info',
+    name: 'coin-trade',
     data(){
         return{           
             activeName: 'first',
@@ -67,7 +62,6 @@ export default {
         tableAll,
         tableFund,
         tableCharge,
-        Editer,
     },
    
 }
