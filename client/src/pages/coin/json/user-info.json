@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "account0": "50230",
+            "account1": "1",
+            "account2": "235",
+            "account3": "456656773444444",
+            "account4": "10",
+            "account5": "CR_USDT",
+            "account6": false,
+            "account7": "0.3200",
+            "account8": "0.038130",
+            "account9": "258",
+            "account10": "1531295401",
+            "account11": "1531295401",
+            "account12": "\u4ef7\u683c\u8d85\u8fc7\u6da8\u8dcc\u8303\u56f4",
+            "account13": "0",
+            "account14": "0",
+            "account15": "1531295401"
+        }, {
+            "account0": "50230",
+            "account1": "1",
+            "account2": "235",
+            "account3": "456656773444444",
+            "account4": "10",
+            "account5": "CR_USDT",
+            "account6": "true",
+            "account7": "true",
+            "account8": "0.038130",
+            "account9": "258",
+            "account10": "1531295401",
+            "account11": "1531295401",
+            "account12": "\u8fc7\u6da8\u8dcc\u8303\u56f4",
+            "account13": "0",
+            "account14": "0",
+            "account15": "1531295401"
+        }
+    ]
+}
