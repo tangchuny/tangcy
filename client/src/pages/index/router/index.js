@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import registration from '../page/setting.vue'
+import registration from '../page/Main.vue'
 
 Vue.use(Router)
 

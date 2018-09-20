@@ -5,23 +5,23 @@
                 <div class="o-m-l c-bg-f">
                     <div class="l-flex o-m-m">
                              <member-search></member-search>
-                            <div class="l-flex-2 c-tr">
-                                    <el-button type="primary" plain>主要按钮</el-button>
+                            <div class="l-flex-1 c-tr">
+                                    <el-button type="primary" plain>批量取消委托</el-button>
                                     <el-button type="success" plain>成功按钮</el-button>
-                                    <el-button type="info" plain>信息按钮</el-button>
-                                    <el-button type="warning" plain>警告按钮</el-button>
-                                    <el-button type="danger" plain>危险按钮</el-button>
+                                    <el-button type="danger" plain>导出</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
+
                             </div>
                         </div>
                     </div>
                
-                <table-info></table-info>
+                <table-one></table-one>
             </el-tab-pane>
             <el-tab-pane label="成交记录查询" name="second">
                 <div class="o-m-l c-bg-f">
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
-                            <div class="l-flex-2 c-tr">
+                            <div class="l-flex-1 c-tr">
                                     <el-button type="primary" plain>主要按钮</el-button>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
 </template>
 <script>
 import memberSearch from './modal/search.vue'
-import tableInfo from './table/table-info.vue'
+import tableOne from './table/table-one.vue'
 import tableFund from './table/table-fund.vue'
 import tableCharge from './table/table-charge.vue'
 export default {
@@ -62,7 +62,7 @@ export default {
     },
     components : {
         memberSearch,
-        tableInfo,
+        tableOne,
         tableFund,
         tableCharge,
     },

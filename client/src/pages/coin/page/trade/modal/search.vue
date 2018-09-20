@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="css" scoped>
   .el-select .el-input {
     width: 130px;
   }

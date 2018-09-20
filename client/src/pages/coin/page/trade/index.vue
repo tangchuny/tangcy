@@ -7,8 +7,8 @@
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
                                     <el-button type="primary" @click="Edit">添加交易对</el-button>
-                                    <el-button type="info">刷新</el-button>
-                                    <el-button type="danger">批量删除</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
+                                    <el-button type="danger" @click="Del">批量删除</el-button>
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,8 @@
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
                                    <el-button type="primary" @click="Edit">添加交易对</el-button>
-                                    <el-button type="info">刷新</el-button>
+                                   <el-button type="info" @click="Refresh">刷新</el-button>
+                                   <el-button type="danger">批量删除</el-button>
                             </div>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
                                    <el-button type="primary" @click="Edit">添加交易对</el-button>
-                                    <el-button type="info">刷新</el-button>
+                                   <el-button type="info" @click="Refresh">刷新</el-button>
                             </div>
                         </div>
                     </div>
@@ -41,6 +42,8 @@
                 <table-fund></table-fund>
             </el-tab-pane>
         </el-tabs>
+            <Editer v-model="Editer.view" :title="Editer.title" :form="Editer.form"></Editer>
+
     </div>
 </template>
 <script>
@@ -48,6 +51,9 @@ import memberSearch from './modal/search.vue'
 import tableAll from './table/table-all.vue'
 import tableFund from './table/table-fund.vue'
 import tableCharge from './table/table-charge.vue'
+
+import Editer from './modal/modal-editer.vue'
+
 export default {
     name: 'coin-trade',
     data(){
@@ -62,12 +68,13 @@ export default {
         tableAll,
         tableFund,
         tableCharge,
+        Editer,
     },
    
 }
 </script>
 
-<style >
+<style scoped>
 .coin-info .el-tabs__header{
         padding: 10px;
     }

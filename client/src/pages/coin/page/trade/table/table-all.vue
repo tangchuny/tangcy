@@ -15,8 +15,8 @@
                         </el-table-column>
                         <el-table-column prop="account13" label="操作" align="center">
                              <template slot-scope="scope">
-                                <a class="t-link-blue o-pr-m">详情</a>
-                                <a class="t-link-blue">删除</a>
+                                <a class="t-link-blue o-pr-m" @click="Edit(scope.row)">修改</a>
+                                <a class="t-link-blue" @click="Del">删除</a>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -31,10 +31,13 @@
                       :total="400">
                     </el-pagination>
                     </div>
+          <Editer v-model="Editer.view" :title="Editer.title" :form="Editer.form"></Editer>
+
     </div>
 </template>
 <script>
 import jsons from '../../../json/user-info.json'
+import Editer from '../modal/modal-editer.vue'
 
 export default {
     name: 'table-charge',
@@ -48,6 +51,9 @@ export default {
                 
             ],
         }
+    },
+    components: {
+      Editer
     },
      methods: {
         toggleSelection(rows) {
@@ -72,7 +78,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .el-select .el-input {
     width: 130px;
   }

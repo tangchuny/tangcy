@@ -6,8 +6,8 @@
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                    <el-button type="primary" @click="Edit">添加币种</el-button>
-                                    <el-button type="info">刷新</el-button>
+                                    <el-button type="primary" @click="Edit()">添加币种</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
                             </div>
                         </div>
                     </div>
@@ -18,8 +18,8 @@
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                    <el-button type="primary" @click="Edit">添加币种</el-button>
-                                    <el-button type="info">刷新</el-button>
+                                    <el-button type="primary" @click="Edit()">添加币种</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
                             </div>
                         </div>
                     </div>
@@ -31,8 +31,8 @@
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                   <el-button type="primary" @click="Edit">添加币种</el-button>
-                                    <el-button type="info">刷新</el-button>
+                                   <el-button type="primary" @click="Edit()">添加币种</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,9 @@ export default {
         tableCharge,
         Editer,
     },
-   
+   methods: {
+      
+   }
 }
 </script>
 

@@ -6,8 +6,8 @@
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                    <el-button type="info" plain>刷新</el-button>
-                                    <el-button type="warning" plain>导出</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
+                                    <el-button type="warning">导出</el-button>
                             </div>
                         </div>
                     </div>
@@ -18,8 +18,8 @@
                     <div class="l-flex o-m-m">
                             <member-search></member-search>
                             <div class="l-flex-1 c-tr">
-                                    <el-button type="info" plain>刷新</el-button>
-                                    <el-button type="warning" plain>导出</el-button>
+                                    <el-button type="info" @click="Refresh">刷新</el-button>
+                                    <el-button type="warning">导出</el-button>
                             </div>
                         </div>
                     </div>
