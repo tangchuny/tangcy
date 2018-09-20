@@ -1,36 +1,50 @@
 <template>
 	<section>
 		<!--工具条-->
-		<el-col :span="24"  style="padding-bottom: 0px;">
+		<el-col :span="24" style="padding-bottom: 0px;">
 			<el-form :inline="true" :model="filters">
 				<el-form-item>
 					<el-input v-model="filters.name" placeholder="姓名"></el-input>
 				</el-form-item>
+				
 			</el-form>
 		</el-col>
 		<!--列表-->
 		<el-table :data="users" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
 			<el-table-column type="selection" width="55">
 			</el-table-column>
-			<el-table-column type="index" width="60">
+			<el-table-column prop="email" label="会员账号" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="email" label="用户名" sortable>
+			<el-table-column prop="firstName" label="姓氏" width="100" :formatter="formatSex" sortable>
 			</el-table-column>
-			<el-table-column prop="tradeCoin" label="交易币" sortable>
+			<el-table-column prop="lastName" label="名字" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="priceCoin" label="定价币" sortable>
+			<el-table-column prop="cid" label="证件类型" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="buyRate" label="买方费率" sortable>
+			<el-table-column prop="tel" label="绑定手机" min-width="180" sortable>
 			</el-table-column>
-			<el-table-column prop="sellRate" label="卖方费率" sortable>
+			<el-table-column prop="time" label="注册时间" min-width="180" sortable>
 			</el-table-column>
-			
+			<el-table-column prop="google" label="是否开启谷歌认证" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="telCertification" label="是否开启手机认证" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="certification" label="是否实名" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="useable" label="是否禁用" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="isTradeable" label="是否开启交易" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="isActive" label="是否激活" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="addr" label="照片地址" min-width="180" sortable>
+			</el-table-column>
 		</el-table>
 
 		<!--工具条-->
 		<el-col :span="24" class="toolbar">
 			<el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">批量删除</el-button>
-			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="20" :total="total" style="float:right;">
+			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="8" :total="total" style="float:right;">
 			</el-pagination>
 		</el-col>
 

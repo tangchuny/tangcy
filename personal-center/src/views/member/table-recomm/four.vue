@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<!--工具条-->
-		<el-col :span="24"  style="padding-bottom: 0px;">
+		<el-col :span="24" style="padding-bottom: 0px;">
 			<el-form :inline="true" :model="filters">
 				<el-form-item>
 					<el-input v-model="filters.name" placeholder="姓名"></el-input>
@@ -12,17 +12,25 @@
 		<el-table :data="users" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
 			<el-table-column type="selection" width="55">
 			</el-table-column>
-			<el-table-column type="index" width="60">
+			<el-table-column prop="name" label="代理商名称" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="email" label="用户名" sortable>
+			<el-table-column prop="sex" label="交易方" width="100" :formatter="formatSex" sortable>
 			</el-table-column>
-			<el-table-column prop="tradeCoin" label="交易币" sortable>
+			<el-table-column prop="age" label="返佣币种" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="priceCoin" label="定价币" sortable>
+			<el-table-column prop="birth" label="交易总量" width="180" sortable>
 			</el-table-column>
-			<el-table-column prop="buyRate" label="买方费率" sortable>
+			<el-table-column prop="addr" label="返佣基数" min-width="180" sortable>
 			</el-table-column>
-			<el-table-column prop="sellRate" label="卖方费率" sortable>
+			<el-table-column prop="addr" label="平台返佣" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="addr" label="所属级数" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="addr" label="交款人" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="addr" label="用户返佣" min-width="180" sortable>
+			</el-table-column>
+			<el-table-column prop="addr" label="交易时间" min-width="180" sortable>
 			</el-table-column>
 			
 		</el-table>

@@ -39,6 +39,9 @@
 import jsons from '../../../json/user-info.json'
 import modalSetting from '../modal/modal-setting.vue'
 import Editer from '../modal/modal-editer.vue'
+
+import { getUserListPage, removeUser, batchRemoveUser, editUser, addUser } from '../../../../../api/api';
+
 export default {
     data(){
         return{
@@ -82,7 +85,14 @@ export default {
       }
     },
     mounted(){
-        this.tableData = jsons.data
+      let para = {
+					page: 1,
+					name: '123'
+				};
+        getUserListPage(para).then((res) => {
+          this.tableData = res.data.users;
+          console.log(this.tableData)
+				});
     }
 }
 </script>

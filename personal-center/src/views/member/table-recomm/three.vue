@@ -14,15 +14,15 @@
 			</el-table-column>
 			<el-table-column type="index" width="60">
 			</el-table-column>
-			<el-table-column prop="email" label="用户名" sortable>
+			<el-table-column prop="name" label="用户名" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="tradeCoin" label="交易币" sortable>
+			<el-table-column prop="sex" label="交易币" width="100" :formatter="formatSex" sortable>
 			</el-table-column>
-			<el-table-column prop="priceCoin" label="定价币" sortable>
+			<el-table-column prop="age" label="定价币" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="buyRate" label="买方费率" sortable>
+			<el-table-column prop="birth" label="买方费率" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="sellRate" label="卖方费率" sortable>
+			<el-table-column prop="addr" label="卖方费率" min-width="180" sortable>
 			</el-table-column>
 			
 		</el-table>
