@@ -12,10 +12,7 @@
     .worker {
         background-color : #f5f5f5;
         height: 100vh;
-        width: 80%;
-        max-width: 1600px;
-        min-width: 1200px;
-        margin: 0 auto;
+        width: 100%;
         overflow: hidden;
     }
 </style>
@@ -26,6 +23,9 @@
                 <header-components></header-components>
             </div>
             <div class="l-flex c-overflow-a worker">
+                <div>
+                    <menu-components></menu-components>
+                </div>
                 <div class="worker">
                     <transition name="page-fade" mode="out-in">
                         <keep-alive>

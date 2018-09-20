@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import registration from '../page/Main.vue'
 
 Vue.use(Router)
 
@@ -13,88 +11,29 @@ export default new Router({
         title: '首页',
         icon: '',
         hidden: true,
-        component: () => import('@/pages/index/page/member/member-info.vue'),
+        component: () => import('../page/coinInfo/index.vue'),
       },
    {
-        path: '/member',
-        name: 'member',
-        title: '会员管理',
-        hidden: false,
+        path: '/coin/info',
+        name: 'coin/info',
+        title: '货币基础信息管理',
         icon: '',
-        children: [
-          {
-            path: '/menber/register',
-            name: 'register',
-            icon: '',
-            component: registration,
-            meta: { title: '会员注册', icon: 'form' }
-          },{
-            path: '/menber/recommended',
-            name: 'recommended',
-            icon: '',
-            component: HelloWorld,
-            meta: { title: '推荐会员', icon: 'form' }
-          }
-        ]
+        hidden: false,
+        component: () => import('../page/coinInfo/index.vue'),
       },{
-        path: '/info',
-        name: 'info',
-        title: '信息发布',
+        path: '/coin/address',
+        name: 'coin/address',
+        title: '币地址管理',
         icon: '',
         hidden: false,
-        children: [
-          {
-            path: '/info/inner',
-            name: 'info/inner',
-            icon: '',
-            component: registration,
-            meta: { title: '站内信息', icon: 'form' }
-          },{
-            path: '/info/news',
-            name: 'info/news',
-            icon: '',
-            component: HelloWorld,
-            meta: { title: '资讯管理', icon: 'form' }
-          },{
-            path: '/info/help',
-            name: 'info/help',
-            icon: '',
-            component: HelloWorld,
-            meta: { title: '帮助中心', icon: 'form' }
-          }, {
-            path: '/info/footer',
-            name: 'info/footer',
-            icon: '',
-            component: HelloWorld,
-            meta: { title: '网页底部信息', icon: 'form' }
-          }, {
-            path: '/info/banner',
-            name: 'info/banner',
-            icon: '',
-            component: HelloWorld,
-            meta: { title: 'Banner发布', icon: 'form' }
-          }
-        ]
+        component: () => import('../page/address/index.vue'),
       }, {
-        path: '/worder/order',
-        name: 'worder/order',
-        title: '工单管理',
+        path: '/coin/trade',
+        name: 'coin/trade',
+        title: '交易对管理',
         icon: '',
         hidden: false,
-        component: HelloWorld
-      }, {
-        path: '/online/service',
-        name: 'online/service',
-        title: '在线客服',
-        icon: '',
-        component: registration
-      }, {
-        path: '/base',
-        name: 'base',
-        title: '基础数据',
-        hidden: false,
-        icon: '',
-        component: HelloWorld
-      },
+        component: () => import('../page/trade/index.vue'),
+      }
   ]
 })

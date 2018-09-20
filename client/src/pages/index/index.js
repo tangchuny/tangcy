@@ -4,10 +4,11 @@
 
 import Vue from 'vue'
 import App from './App'
-import router from './router/index'
-import store from './store/index'
-import methods from '../../common/methods.js'
+import router from './router'
+import store from './store'
+import methods from '../../common/methods'
 import './style/index.scss'
+import './lib/mixin'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

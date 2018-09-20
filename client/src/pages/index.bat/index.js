@@ -8,7 +8,6 @@ import router from './router/index'
 import store from './store/index'
 import methods from '../../common/methods.js'
 import './style/index.scss'
-import './lib/mixin.js'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
