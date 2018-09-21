@@ -1,7 +1,4 @@
 <template>
-      <el-dialog
-        :title="title" :visible.sync="view"
-        width="60%" >
         <div class="u-border-t o-p-b">
             <div class="l-flex  c-line-xxl">
                 <div class="l-flex-1 l-flex">
@@ -100,20 +97,17 @@
                 </div>
                
             </div>
-            
-
+              <div slot="footer" class="dialog-footer c-tr">
+                <el-button @click="$emit('exit')">取 消</el-button>
+                <el-button type="primary" @click="$emit('exit')">确 定</el-button>
+              </div>
         </div>
-         <span slot="footer" class="dialog-footer">
-                <el-button @click="view = false">取 消</el-button>
-                <el-button type="primary" @click="view = false">确 定</el-button>
-            </span>
-        </el-dialog>
+       
 </template>
 <script>
 export default {
-    data(){
+    data() {
         return{
-            view : false,
             value1: true,
             value2: true,
             radio: '1',
@@ -123,45 +117,22 @@ export default {
             }
         }
     },
-    props : ['value','title','form'],
-    watch:{
-        value(val){
-            if(val){
-                if(this.form){
-                    this.$set(this.$data,'Params',this.Origin(this.form))
-                }else{
-                    this.$set(this.$data,'Params',this.$options.data().Params)
-                }
-                this.view = true
-            }
-        },
-        view(val){
-            if(val===false){
-                this.$emit('input',false)             
-            }
-        },
+    props: ['params'],
+    wathc: {
+        params(val) {
+        }
     },
-    methods: {
-       
-    },
-    created(){        
-        this.view  = this.value
-    },
+    created() {
+        this.Params = this.params
+    }
 }
 </script>
-<style>
-.t-w {
+<style lang="scss" scoped>
+.t-w{
+    width: 180px;
     text-align: right;
-    width: 175px;
-}
-.el-upload-dragger {
-    width: 215px;
-    height: 121px;
-}
-
-.el-upload-dragger .el-icon-upload {
-    margin: 21px  0 16px;
-    line-height: 30px;
+    margin-right: 20px;
 }
 </style>
+
 
