@@ -2,7 +2,7 @@
   "name": "vueadmin",
   "version": "1.0.5",
   "description": "vue admin project",
-  "author": "taylor <709161610@qq.com>",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -17,7 +17,8 @@
     "nprogress": "^0.2.0",
     "vue": "^2.2.2",
     "vue-router": "^2.3.0",
-    "vuex": "^2.0.0-rc.6"
+    "vuex": "^2.0.0-rc.6",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

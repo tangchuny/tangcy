@@ -1,0 +1,18 @@
+@import "../common/style/reset.scss";
+@import "../common/style/config.scss";
+@import "../common/style/style.scss";
+
+.t-w{
+    line-height: 30px;
+    width: 80px;
+    display: inline-block;
+}
+
+.tips{
+    border: solid 1px #fdf6ed;
+    background: #fdf6ec;
+    padding: 10px;
+    color: #e6a23c;
+    border-radius: 4px;
+    margin-top: 5px;
+}

@@ -4,7 +4,7 @@
 		<el-col :span="24" style="padding-bottom: 0px;">
 			<el-form :inline="true" :model="filters">
 				<el-form-item>
-					<el-input v-model="filters.name" placeholder="姓名"></el-input>
+					<el-input v-model="filters.name" placeholder="委托人"></el-input>
 				</el-form-item>
 			</el-form>
 		</el-col>
@@ -12,82 +12,66 @@
 		<el-table :data="users" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
 			<el-table-column type="selection" width="55">
 			</el-table-column>
-			<el-table-column prop="email" label="用户账号" sortable>
+			<el-table-column prop="email" label="委托人" width="200" sortable>
 			</el-table-column>
-			<el-table-column prop="firstName" label="姓氏" sortable>
+			<el-table-column prop="id" label="委托单号" min-width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="lastName" label="名字"  sortable>
+			<el-table-column prop="firstName" label="姓氏" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="moneyAccount" label="资金账户号" sortable>
+			<el-table-column prop="lastName" label="名字" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="balance" label="可用金额"  sortable>
+			<el-table-column prop="time" label="委托时间" min-width="150" sortable>
 			</el-table-column>
-			<el-table-column prop="freezenBalance" label="冻结金额"  sortable>
+			<el-table-column prop="tradeCoin" label="交易币种" width="150" sortable>
+			</el-table-column>
+			<el-table-column prop="priceCoin" label="定价币种" min-width="150" sortable>
+			</el-table-column>
+			<el-table-column prop="entrustType" label="委托类型" min-width="120">
+			</el-table-column>
+			<el-table-column prop="entrustType" label="出价类型" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="balance" label="委托价格" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="number" label="委托数量" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="entrustType" label="成交数量" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="price" label="成交均价" min-width="120" sortable>
+			</el-table-column>
+			
+			<el-table-column prop="entrustType" label="状态" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="entrustType" label="来源" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="entrustType" label="交易明细" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column prop="ip" label="客户IP" min-width="120" sortable>
+			</el-table-column>
+			<el-table-column label="操作" align="center" width="200">
+					<template slot-scope="scope">
+						<el-button round @click="edit(scope.row)">编辑</el-button>
+						<el-button round @click="detail(scope.row)">查看</el-button>
+				</template>
 			</el-table-column>
 		</el-table>
 
 		<!--工具条-->
 		<el-col :span="24" class="toolbar">
-			<el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">批量删除</el-button>
-			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="20" :total="total" style="float:right;">
+			<el-button type="danger" @click="batchRemove" :disabled="this.sels.length===0">
+					{{ this.sels.length > 1 ? '批量删除' : '删除'}}
+				</el-button>
+			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="8" :total="total" style="float:right;">
 			</el-pagination>
 		</el-col>
 
-		<!--编辑界面-->
-		<el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
-			<el-form :model="editForm" label-width="80px" :rules="editFormRules" ref="editForm">
-				<el-form-item label="姓名" prop="name">
-					<el-input v-model="editForm.name" auto-complete="off"></el-input>
-				</el-form-item>
-				<el-form-item label="性别">
-					<el-radio-group v-model="editForm.sex">
-						<el-radio class="radio" :label="1">男</el-radio>
-						<el-radio class="radio" :label="0">女</el-radio>
-					</el-radio-group>
-				</el-form-item>
-				<el-form-item label="年龄">
-					<el-input-number v-model="editForm.age" :min="0" :max="200"></el-input-number>
-				</el-form-item>
-				<el-form-item label="生日">
-					<el-date-picker type="date" placeholder="选择日期" v-model="editForm.birth"></el-date-picker>
-				</el-form-item>
-				<el-form-item label="地址">
-					<el-input type="textarea" v-model="editForm.addr"></el-input>
-				</el-form-item>
-			</el-form>
-			<div slot="footer" class="dialog-footer">
-				<el-button @click.native="editFormVisible = false">取消</el-button>
-				<el-button type="primary" @click.native="editSubmit" :loading="editLoading">提交</el-button>
-			</div>
+		
+		<el-dialog
+			:title="modal.title"
+			:visible.sync="modal.show"
+			width="30%">
+			<component :is="modal.name" @exit="exit" @callBack="callBack" :show="modal.show" :params="modal.params"></component>
 		</el-dialog>
-
-		<!--新增界面-->
-		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
-			<el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
-				<el-form-item label="姓名" prop="name">
-					<el-input v-model="addForm.name" auto-complete="off"></el-input>
-				</el-form-item>
-				<el-form-item label="性别">
-					<el-radio-group v-model="addForm.sex">
-						<el-radio class="radio" :label="1">男</el-radio>
-						<el-radio class="radio" :label="0">女</el-radio>
-					</el-radio-group>
-				</el-form-item>
-				<el-form-item label="年龄">
-					<el-input-number v-model="addForm.age" :min="0" :max="200"></el-input-number>
-				</el-form-item>
-				<el-form-item label="生日">
-					<el-date-picker type="date" placeholder="选择日期" v-model="addForm.birth"></el-date-picker>
-				</el-form-item>
-				<el-form-item label="地址">
-					<el-input type="textarea" v-model="addForm.addr"></el-input>
-				</el-form-item>
-			</el-form>
-			<div slot="footer" class="dialog-footer">
-				<el-button @click.native="addFormVisible = false">取消</el-button>
-				<el-button type="primary" @click.native="addSubmit" :loading="addLoading">提交</el-button>
-			</div>
-		</el-dialog>
+		
 	</section>
 </template>
 
@@ -96,9 +80,24 @@
 	//import NProgress from 'nprogress'
 	import { getUserListPage, removeUser, batchRemoveUser, editUser, addUser } from '../../../api/api';
 
+	import modalEdit from '../modal/modal-edit.vue'
+	import modalDetail from '../modal/modal-detail.vue'
+
 	export default {
+		components: {
+			modalEdit,
+			modalDetail,
+		},
 		data() {
 			return {
+				modal : {
+					name : '',
+					show : false,
+					title : '',
+					params : '',
+				},
+
+				value1: '',
 				filters: {
 					name: ''
 				},
@@ -144,10 +143,21 @@
 			}
 		},
 		methods: {
-			//性别显示转换
-			formatSex: function (row, column) {
-				return row.sex == 1 ? '男' : row.sex == 0 ? '女' : '未知';
+			modalView(modal) {
+                this.modal.show = false
+                this.$nextTick(() => {
+                    this.modal = {
+                        show: true,
+                        ...modal
+                    }
+                })
+            },
+			 exit() {
+				this.modal.show = false
 			},
+			callBack() {
+			},
+
 			handleCurrentChange(val) {
 				this.page = val;
 				this.getUsers();
@@ -163,6 +173,7 @@
 				getUserListPage(para).then((res) => {
 					this.total = res.data.total;
 					this.users = res.data.users;
+					console.log(this.users)
 					this.listLoading = false;
 					//NProgress.done();
 				});
@@ -276,6 +287,12 @@
 				}).catch(() => {
 
 				});
+			},
+			detail(item) {
+				this.modalView({ name: 'modalDetail',  title: "详情", params: item })
+			},
+			edit(item) {
+				this.modalView({ name: 'modalEdit',  title: "编辑", params: item })
 			}
 		},
 		mounted() {

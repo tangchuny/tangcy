@@ -4,7 +4,7 @@
 		<el-tab-pane label="会员信息管理" name="first">
 			<one></one>
 		</el-tab-pane>
-		<el-tab-pane label="资金账户管理" name="second">
+		<el-tab-pane label="币地址管理" name="second">
 			<two></two>
 		</el-tab-pane>
 		<el-tab-pane label="个人交易手续费管理" name="third">

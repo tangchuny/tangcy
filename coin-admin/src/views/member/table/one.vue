@@ -7,18 +7,6 @@
 					<el-input v-model="filters.name" placeholder="会员账号"></el-input>
 				</el-form-item>
 				<el-form-item>
-					<el-input v-model="filters.name" placeholder="姓氏"></el-input>
-				</el-form-item>
-				<el-form-item>
-					<el-input v-model="filters.name" placeholder="绑定手机"></el-input>
-				</el-form-item>
-				<el-form-item>
-					<el-input v-model="filters.name" placeholder="姓名"></el-input>
-				</el-form-item>
-				<el-form-item>
-					<el-input v-model="filters.name" placeholder="姓名"></el-input>
-				</el-form-item>
-				<el-form-item>
 					<el-date-picker
 					v-model="value1"
 					type="date"
@@ -33,17 +21,17 @@
 			</el-table-column>
 			<el-table-column prop="email" label="会员账号" width="200" sortable>
 			</el-table-column>
-			<el-table-column prop="firstName" label="姓氏" width="100" sortable>
+			<!-- <el-table-column prop="firstName" label="姓氏" width="100" sortable>
 			</el-table-column>
 			<el-table-column prop="lastName" label="名字" width="100" sortable>
-			</el-table-column>
+			</el-table-column> -->
 			<el-table-column prop="cid" label="证件类型" width="120" sortable>
 			</el-table-column>
 			<el-table-column prop="tel" label="绑定手机" min-width="180" sortable>
 			</el-table-column>
 			<el-table-column prop="time" label="注册时间" min-width="180" sortable>
 			</el-table-column>
-			<el-table-column prop="google" label="是否开启谷歌认证" min-width="180">
+			<!-- <el-table-column prop="google" label="是否开启谷歌认证" min-width="180">
 				 <template slot-scope="scope">
 						<el-switch
 						v-model="scope.row.google"
@@ -89,7 +77,7 @@
 						inactive-color="#dedede">
 					</el-switch>
 				</template>
-			</el-table-column>
+			</el-table-column> -->
 			<el-table-column prop="url" label="照片地址" min-width="180" sortable>
 			</el-table-column>
 			<el-table-column label="操作" align="center" width="200">

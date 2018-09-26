@@ -1,8 +1,8 @@
 {
   "name": "vueadmin",
   "version": "1.0.5",
-  "description": "vue admin project",
-  "author": "taylor <709161610@qq.com>",
+  "description": "vue  project",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -14,6 +14,7 @@
     "echarts": "^3.3.2",
     "element-ui": "^2.4.0",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
     "nprogress": "^0.2.0",
     "vue": "^2.2.2",
     "vue-router": "^2.3.0",

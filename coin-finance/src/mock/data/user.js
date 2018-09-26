@@ -13,7 +13,7 @@ const Users = [];
 
 for (let i = 0; i < 16; i++) {
   Users.push(Mock.mock({
-    id: Mock.Random.guid(),
+    id: Mock.mock('@integer'),
     name: Mock.Random.cname(),
     firstName: Mock.mock('@cfirst'),
     lastName: Mock.mock('@clast'),
@@ -39,6 +39,17 @@ for (let i = 0; i < 16; i++) {
     'priceCoin|1':['BNT','USDT'],
     "buyRate|0-1.1-10": 1,
     "sellRate|0-10.1-10": 1,
+    proType: Mock.Random.boolean(2, 8, false),
+    "price|123.3": 1,
+    number: Mock.mock('@increment(1000)'),
+    coinName: Mock.mock('@tld'),
+    publicName: Mock.mock('@ctitle()'),
+    coinAddress: Mock.mock('@guid'),
+    ip: Mock.mock('@ip'),
+    dive: Mock.mock('@protocol'),
+    info: Mock.mock('@csentence'),
+    walletAddr: Mock.mock('@guid'),
+    remark: Mock.mock('@ctitle()'),
   }));
 }
 

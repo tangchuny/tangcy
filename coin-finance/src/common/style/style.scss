@@ -429,3 +429,15 @@ $lc-box-shadow-color : 3px rgba(51, 69, 54, 0.10);
     to   { transform: rotate(360deg);}
 }
 
+.mask{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    overflow: auto;
+    margin: 0;
+    background: #000000;
+    opacity: 0.4;
+    z-index: 999;
+}

@@ -24,6 +24,9 @@
 			</el-table-column>
 			<el-table-column prop="freezenBalance" label="冻结金额"  sortable>
 			</el-table-column>
+			<el-table-column type="expand">
+				lll
+			</el-table-column>
 		</el-table>
 
 		<!--工具条-->

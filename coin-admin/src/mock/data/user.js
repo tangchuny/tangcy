@@ -39,7 +39,15 @@ for (let i = 0; i < 16; i++) {
     'priceCoin|1':['BNT','USDT'],
     "buyRate|0-1.1-10": 1,
     "sellRate|0-10.1-10": 1,
+    list: [
+
+    ]
   }));
+
+  for (let j = 0; j < 3; j++) {
+    Users[i].list.push(Mock.mock({
+      email: Mock.mock('@email'),
+    }))}
 }
 
 export { LoginUsers, Users };

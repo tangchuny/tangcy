@@ -34,7 +34,7 @@ let routes = [
         iconCls: 'fa fa-address-card',
         leaf: true,//只有一个节点
         children: [
-            { path: '/coinCheck', component: () => import('./views/coinCheck/index.vue'), name: '充提币审核' }
+            { path: '/coinCheck', component: () => import('./views/coinCheck/index.vue'), name: '提币审核' }
         ]
     },
     {

@@ -10,7 +10,6 @@
         <div class="o-mt-l l-flex u-border-b o-pb-l">
             <div class="l-flex-1 l-flex">
                 <div class="photo">
-                    
                 </div>
                 <div class="info">
                     <div class="c-text-9 c-tb c-color-b-3">445344449@qq.com</div>
@@ -18,19 +17,25 @@
                     <p class="o-mt-m"><span class="c-tab ">超级管理员</span></p>
                 </div>
             </div>
-            <div class="l-flex-1 l-flex o-mt-b">
-                    <div class="l-flex-1">
-                        <a class="c-text-9" @click="edit">修改登陆密码</a>
-                        <span><i class="el-icon-arrow-right"></i></span>
-                    </div>
-                    <div class="l-flex-3" style="margin-left: 4rem;">
-                        <a class="c-text-9" @click="edit">手机验证（138*****140</a>
-                        <span><i class="el-icon-arrow-right"></i></span>
-                        <div class="c-text-7 c-color-g-2">提现，修改密码，及安全设置时用以收取验证短信</div>
-                    </div>
-            </div>
+            
         </div>
-        <div class="">
+        <div class="l-flex l-flex o-mt-b o-mb-b">
+                <div class="l-flex-1 c-tc">
+                    <a class="c-text-9" @click="edit">修改登陆密码</a>
+                    <span><i class="el-icon-arrow-right"></i></span>
+                </div>
+                <div class="l-flex-1" style="margin-left: 4rem;">
+                    <a class="c-text-9" @click="edit">手机验证（138*****140</a>
+                    <span><i class="el-icon-arrow-right"></i></span>
+                    <div class="c-text-7 c-color-g-2">修改密码，及安全设置时用以收取验证短信</div>
+                </div>
+                    <div class="l-flex-1" style="margin-left: 4rem;">
+                    <a class="c-text-9" @click="edit">谷歌验证</a>
+                    <span><i class="el-icon-arrow-right"></i></span>
+                    <div class="c-text-7 c-color-g-2">修改密码，及安全设置时用以验证谷歌二次验证</div>
+                </div>
+        </div>
+        <div class="o-mt-b">
             <table-list></table-list>
         </div>
         <el-dialog
