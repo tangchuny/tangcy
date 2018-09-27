@@ -368,6 +368,9 @@ $offset-h : 1.6rem!default;
 .t-link-t, .t-link-p, .t-link-w, .t-link-e, .t-link-d, .t-link-i, .t-link-o {
     color:#999; transition:color .2s; cursor:pointer;
 }
+.t-link-w {
+    color:$color-w; transition:color .2s; cursor:pointer;
+}
 .t-link-blue{
     color:$color-blue; transition:color .2s; cursor:pointer;
 }
@@ -381,7 +384,7 @@ $offset-h : 1.6rem!default;
     &:hover {color:$color-p;}
 }
 .t-link-w  {    
-    &:hover {color:$color-w;}
+    &:hover {color:$color-e;}
 }
 .t-link-e, .t-link-d  {
     &:hover {color:$color-e;}

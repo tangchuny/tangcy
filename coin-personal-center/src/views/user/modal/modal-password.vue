@@ -1,10 +1,8 @@
 <template>
     <div class="u-border-t o-p-b">
-        <el-alert
-            class="o-mb-l"
-            title="*不要透露密码、短信和谷歌验证码给任何人"
-            type="warning">
-        </el-alert>
+        <div class="tips o-mb-l">
+          <p> *为了您的资产安全，登录密码修改后24h以内不允许提现</p>
+        </div>
         <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
         <el-form-item label="旧密码" prop="oldPass">
             <el-input type="password" v-model="ruleForm2.oldPass" autocomplete="off"></el-input>
@@ -17,32 +15,26 @@
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm2')">确定修改</el-button>
-            <el-button @click="resetForm('ruleForm2')">重置</el-button>
+            <el-button @click="innerVisible = false">取消</el-button>
         </el-form-item>
         </el-form>
-
-        <el-dialog
-        width="25%"
-        title="谷歌认证"
-        :visible.sync="innerVisible"
-        append-to-body>
-            <div class="u-border-t o-p-b">
-                <el-alert
-                    class="o-mb-l"
-                    title="*不要透露密码、短信和谷歌验证码给任何人"
-                    type="warning">
-                </el-alert>
-                谷歌认证码：<el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
-               <p class="o-mt-l c-tc">
-                <el-button type="primary" @click="submitForm('ruleForm2')">确 定</el-button>
-               </p>
-            </div>
-        </el-dialog>
+        <modal-google :view="innerVisible" @exit="exit" @callBack='callBack'></modal-google>
+        
 </div>
 </template>
 <script>
   export default {
     data() {
+      var validateOldPass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入旧密码'));
+        } else {
+          if (this.ruleForm2.oldPass !== '') {
+            this.$refs.ruleForm2.validateField('oldPass');
+          }
+          callback();
+        }
+      };
       var validatePass = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
@@ -65,11 +57,14 @@
       return {
         innerVisible: false,
         ruleForm2: {
-            oldPass: '',
+          oldPass: '',
           pass: '',
           checkPass: '',
         },
         rules2: {
+           oldPass: [
+            { validator: validateOldPass, trigger: 'blur' }
+          ],
           pass: [
             { validator: validatePass, trigger: 'blur' }
           ],
@@ -90,6 +85,12 @@
         //     return false;
         //   }
         // });
+      },
+      exit() {
+        this.innerVisible = false
+      },
+      callBack() {
+        this.handleSubmit2()
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();

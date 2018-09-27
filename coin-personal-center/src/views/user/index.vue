@@ -50,15 +50,31 @@
                 </div>
              </div> -->
               <!--认证后-->
-             <div class="l-flex-1  u-border o-p-b c-tc">
+             <!-- <div class="l-flex-1  u-border o-p-b c-tc">
                    <div class="c-text-8 c-color-g-2"><i class="c-color-s el-icon-success o-mr-l "> 您的身份信息已通过认证</i></div>
                    <div class="c-text-7 c-color-g-2 o-mt-l">
                        <span class="o-mr-l"> 国籍China (中国)</span>
                        <span class="o-mr-l"> 证件号45**********42</span>
                        <span class="o-mr-l"> 姓名 汤春燕</span>
                    </div>
-             </div>
-
+             </div> -->
+             <!--返佣金-->
+             <div class="l-flex-1 l-flex u-border c-tc">
+                    <div class="l-flex-1 c-tc o-p-b u-border-r ">
+                        <div class="c-text-9 o-pb-s">邀请人数</div>
+                        <span class="c-color-g-2 o-mr-m">邀请总人数</span>
+                        <span class="c-text-13 t-link-w"  @click="$router.push({ path: 'invite'})">10</span>
+                    </div>
+                        
+                    <div class="l-flex-1 c-tc o-p-b">
+                        <div class="c-text-9 o-pb-s">获得返佣</div>
+                        <span class="c-color-g-2 o-mr-m ">USDT</span>
+                        <span class="c-text-13  t-link-blue"  @click="$router.push({ path: 'invite'})">0.00000000</span>
+                    </div>
+                    
+            </div>
+            <!--返佣金-->
+            
              <div class="l-flex-1 l-flex u-border o-p-b o-ml-l">
                  <div class="l-flex-4">
                    <span class="c-text-9 o-mb-m">提现地址管理</span>
@@ -93,8 +109,6 @@
 <script>
 import tableList from './table/table-list.vue'
 import loginList from './table/table-login-list.vue'
-import modalPassword from './modal/modal-password.vue'
-import identifyModal from './modal/modal-identify.vue'
 import tableSave from './table/table-save.vue'
 export default {
     name: 'user',
@@ -113,8 +127,6 @@ export default {
     components: {
         loginList,
         tableList,
-        modalPassword,
-        identifyModal,
         tableSave,
     },
     methods: {
@@ -128,14 +140,12 @@ export default {
                     }
                 })
         },
-            exit() {
+        exit() {
             this.modal.show = false
         },
         callBack() {
         },
-        edit(item) {
-            this.modalView({ name: 'modalPassword',  title: '修改登录密码' })
-        }
+        
     }
 }
 </script>

@@ -24,9 +24,16 @@ Vue.mixin({
                 Params : null,
             },
             Config,
+            modal : {
+                name : '',
+                show : false,
+                title : '',
+                params : '',
+            },
         }
     },
     computed: {
+       
         main(){
             if(this.model){
                 let store = this.model.split("/")[0]
@@ -41,6 +48,21 @@ Vue.mixin({
         },
     },
     methods : {
+        modalView(modal) {
+                this.modal.show = false
+                this.$nextTick(() => {
+                    this.modal = {
+                        show: true,
+                        ...modal
+                    }
+                })
+        },
+        exit() {
+            this.modal.show = false
+        },
+        callBack() {
+        },
+
         Big(opt){
             // 加-add  减-sub  乘-mul  除-div  四舍五入-round(位数，模式)
             return new Big(opt)

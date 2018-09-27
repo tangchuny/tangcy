@@ -79,6 +79,7 @@ export default {
        
     },
     created(){        
+        debugger
         this.view  = this.value
     },
 }

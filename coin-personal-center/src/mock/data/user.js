@@ -52,6 +52,8 @@ for (let i = 0; i < 3; i++) {
     remark: Mock.mock('@ctitle()'),
     'types|1':['成交','已撤消'],
     'direction|1':['买','卖'],
+    inviteType: Mock.Random.boolean(5, 5, false),
+
   }));
 }
 

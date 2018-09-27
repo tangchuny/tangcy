@@ -17,23 +17,7 @@
       <!--<el-button @click.native.prevent="handleReset2">重置</el-button>-->
     </el-form-item>
   </el-form>
-   <el-dialog
-        width="25%"
-        title="谷歌认证"
-        :visible.sync="innerVisible"
-        append-to-body>
-            <div class="u-border-t o-p-b">
-                <el-alert
-                    class="o-mb-l"
-                    title="*不要透露密码、短信和谷歌验证码给任何人"
-                    type="warning">
-                </el-alert>
-                谷歌认证码：<el-input type="number" v-model="google" autocomplete="off"></el-input>
-               <p class="o-mt-l c-tc">
-                <el-button type="primary" @click="handleSubmit2" :loading="logining">确 定</el-button>
-               </p>
-            </div>
-        </el-dialog>
+  <modal-google :view="innerVisible" @exit="exit" @callBack='callBack'></modal-google>
 </div> 
 </template>
 
@@ -43,7 +27,7 @@
   //import NProgress from 'nprogress'
   export default {
     name: 'login',
-    components: { loginVerify },
+    components: { loginVerify, },
     data() {
       return {
         innerVisible: false,
@@ -69,6 +53,12 @@
     methods: {
       handleReset2() {
         this.$refs.ruleForm2.resetFields();
+      },
+      exit() {
+        this.innerVisible = false
+      },
+      callBack() {
+        this.handleSubmit2()
       },
       handleSubmit() {
         this.innerVisible = true
